@@ -1,6 +1,6 @@
 ﻿namespace UltrasoundSender
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -47,6 +47,7 @@
             this.MatrixHeight = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GainTrackBar)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -234,6 +235,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.MatrixWidth);
             this.panel1.Controls.Add(this.SearchButton);
@@ -252,19 +254,30 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.GainValueTextBox);
             this.panel1.Controls.Add(this.ImgWidth);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(529, 283);
+            this.panel1.Size = new System.Drawing.Size(553, 297);
             this.panel1.TabIndex = 20;
             this.panel1.Click += new System.EventHandler(this.Panel1_Click);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(15, 253);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(503, 32);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Vizualizar Imagens do Servidor";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 305);
+            this.ClientSize = new System.Drawing.Size(553, 297);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Envio de Ultrasom";
             ((System.ComponentModel.ISupportInitialize)(this.GainTrackBar)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -294,6 +307,7 @@
         private System.Windows.Forms.TextBox MatrixHeight;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -14,13 +14,14 @@ using Newtonsoft.Json;
 
 namespace UltrasoundSender
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
         public IList<float> Ultrasound;
+        public float[] ultravector;
         private static readonly HttpClient client = new HttpClient();
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -32,17 +33,11 @@ namespace UltrasoundSender
             {
                 FilePathTextBox.Text = openFileDialog1.FileName;
                 string[] buffer = File.ReadAllText(FilePathTextBox.Text).Split('\n');
-                string[] aux;
                 Ultrasound = new List<float>();
                 foreach (string number in buffer)
                 {
-                    if (!number.Contains("e") && !String.IsNullOrWhiteSpace(number))
-                        Ultrasound.Add(float.Parse(number));
-                    else if(!String.IsNullOrWhiteSpace(number))
-                    { 
-                        aux = number.Split('e');
-                        Ultrasound.Add(float.Parse(aux[0]) * (float)Math.Pow(Math.E, float.Parse(aux[1])));
-                    }
+                    if(!String.IsNullOrWhiteSpace(number))
+                        Ultrasound.Add(float.Parse(number, CultureInfo.InvariantCulture));
                 }
                 VectorSizeTextBox.Text = Ultrasound.Count.ToString();
                 SendButton.Enabled = true;
@@ -70,8 +65,12 @@ namespace UltrasoundSender
             }
             return Ultrasound.ToArray();
         }
-        private async void SendButton_Click(object sender, EventArgs e)
+        private void SendButton_Click(object sender, EventArgs e)
         {
+            View form = new View();
+            form.Ultrasound = AjustUltraSoundGain(float.Parse(GainValueTextBox.Text, CultureInfo.InvariantCulture));
+            form.Show();
+            /*
             var values = new
             {
                 Ultrasound = AjustUltraSoundGain(float.Parse(GainValueTextBox.Text, CultureInfo.InvariantCulture))
@@ -81,12 +80,12 @@ namespace UltrasoundSender
 
             var response = await client.PostAsync("https://csm30-ultrasound-api.herokuapp.com/", content);
 
-            var responseString = await response.Content.ReadAsStringAsync();
+            var responseString = await response.Content.ReadAsStringAsync();*/
         }
 
         private void TrackBar1_ValueChanged(object sender, System.EventArgs e)
         {
-                GainValueTextBox.Text = ((float)GainTrackBar.Value/2).ToString("0.0");
+                GainValueTextBox.Text = ((float)GainTrackBar.Value/2).ToString("0.0",CultureInfo.InvariantCulture);
         }
         private void ImgHeight_LostFocus(object sender, System.EventArgs e)
         {

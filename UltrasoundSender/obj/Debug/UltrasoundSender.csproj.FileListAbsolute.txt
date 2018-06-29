@@ -1,0 +1,15 @@
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\bin\Debug\UltrasoundSender.exe.config
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\bin\Debug\UltrasoundSender.exe
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\bin\Debug\UltrasoundSender.pdb
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.csprojResolveAssemblyReference.cache
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.Main.resources
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.Properties.Resources.resources
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.View.resources
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.csproj.GenerateResource.cache
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.csproj.CopyComplete
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.exe
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\obj\Debug\UltrasoundSender.pdb
+C:\Users\User\source\repos\UltrasoundSender\UltrasoundSender\bin\Debug\DotNumerics.dll
