@@ -174,7 +174,7 @@
             // VectorSizeTextBox
             // 
             this.VectorSizeTextBox.Enabled = false;
-            this.VectorSizeTextBox.Location = new System.Drawing.Point(356, 65);
+            this.VectorSizeTextBox.Location = new System.Drawing.Point(244, 62);
             this.VectorSizeTextBox.Name = "VectorSizeTextBox";
             this.VectorSizeTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.VectorSizeTextBox.Size = new System.Drawing.Size(50, 22);
