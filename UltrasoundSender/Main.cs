@@ -58,44 +58,42 @@ namespace UltrasoundSender
                 {
                     if (i % tenPer == 0)
                         auxG += gain / 20;
-                    ret[i] = value * auxG;
+                    ret[i] = value * gain;
                     i++;
                 }
                 return ret;
             }
             return Ultrasound.ToArray();
         }
-        private void SendButton_Click(object sender, EventArgs e)
+        private async void SendButton_Click(object sender, EventArgs e)
         {
-            View form = new View();
-            form.Ultrasound = AjustUltraSoundGain(float.Parse(GainValueTextBox.Text, CultureInfo.InvariantCulture));
-            form.Show();
-            /*
-            var values = new
-            {
-                Ultrasound = AjustUltraSoundGain(float.Parse(GainValueTextBox.Text, CultureInfo.InvariantCulture))
-            };
-            var stringPayload = JsonConvert.SerializeObject(values);
-            var content = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+           var values = new
+           {
+               ImgHeight = int.Parse(ImgHeight.Text),
+               ImgWidth = int.Parse(ImgWidth.Text),
+               Ultrasound = AjustUltraSoundGain(float.Parse(GainValueTextBox.Text, CultureInfo.InvariantCulture))
+           };
+           var stringPayload = JsonConvert.SerializeObject(values);
+           var content = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("https://csm30-ultrasound-api.herokuapp.com/", content);
+           var response = await client.PostAsync("https://csm30-ultrasound-api.herokuapp.com/ultrasound", content);
 
-            var responseString = await response.Content.ReadAsStringAsync();*/
+           var responseString = await response.Content.ReadAsStringAsync();
         }
 
         private void TrackBar1_ValueChanged(object sender, System.EventArgs e)
         {
-                GainValueTextBox.Text = ((float)GainTrackBar.Value/2).ToString("0.0",CultureInfo.InvariantCulture);
+            GainValueTextBox.Text = (GainTrackBar.Value!=0?(int)GainTrackBar.Value*10:(int)1).ToString();
         }
         private void ImgHeight_LostFocus(object sender, System.EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(ImgHeight.Text))
+            if (!int.TryParse(ImgHeight.Text, out int n))
                 ImgHeight.Text = "60";
             MatrixWidth.Text = (int.Parse(ImgHeight.Text) * int.Parse(ImgWidth.Text)).ToString();
         }
         private void ImgWidth_LostFocus(object sender, System.EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(ImgWidth.Text))
+            if (!int.TryParse(ImgWidth.Text,out int n))
                 ImgWidth.Text = "60";
             MatrixWidth.Text = (int.Parse(ImgHeight.Text) * int.Parse(ImgWidth.Text)).ToString();
         }
@@ -106,10 +104,16 @@ namespace UltrasoundSender
                 VectorSizeTextBox.Text = "50816";
             MatrixHeight.Text = VectorSizeTextBox.Text;
         }
-        private void Panel1_Click(object sender, System.EventArgs e)
+
+        private void ViewImagesButton_Click(object sender, EventArgs e)
+        {
+            View form = new View();
+            form.Show();
+        }
+
+        private void Panel1_Click(object sender, EventArgs e)
         {
             panel1.Focus();
         }
-
     }
 }
